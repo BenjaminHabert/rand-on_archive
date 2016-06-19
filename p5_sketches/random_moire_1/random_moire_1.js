@@ -20,7 +20,7 @@ var moire_sketch = function(s) {
   var angle_max = 1.0;
   
   s.setup = function() {
-    
+    s.pixelDensity(1);
     var main_width = s.decide_main_width(600);
     s.createCanvas(main_width,main_width);
     s.frameRate(30);
@@ -29,7 +29,8 @@ var moire_sketch = function(s) {
     s.angleMode(s.RADIANS);
     s.resetPattern();
   };
-  
+
+  // UTILITY FUNCTIONS
   s.decide_main_width = function(max_width){
     // decide on sketch width
     var disp = s.min(s.displayWidth, s.displayHeight);
@@ -41,11 +42,64 @@ var moire_sketch = function(s) {
   s.isinside = function(x, y){
     return x >= 0 && x <= s.width && y >= 0 && y <= s.height;
   }
-  
-  s.mousePressed = function(){
+
+  // MOUSE EVENTS
+  s.mousePressed = function(mouseEvent){
     if(s.isinside(s.mouseX, s.mouseY)) {
       s.resetPattern();
-      return false;
+      // return mouseEvent;
+    }
+  };
+
+  s.mouseMoved = function() {
+    // get angle from mouse position
+    s.processMouseMove(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY);
+  };
+
+
+  // MOBILE EVENTS
+  s.touchStarted = function(touchEvent){
+    // if two fingers touch: reset
+    if (s.touches.length > 1) {
+      // check that one of them is inside
+      for (var i=0; i<s.touches.length; i++){
+        var touch = s.touches[i];
+        if (s.isinside(touch.x, touch.y)) {
+          s.resetPattern();
+          return;
+        }
+      }
+    }
+  };
+
+  s.touchMoved = function(touchEvent){
+    // return false;  -> THIS PREVENTS THE USER FROM SCROLLING
+    if (s.isinside(s.touchX, s.touchY)) {
+      // if the user is not moving a lot: do the processing
+      if (s.dist(s.touchX, s.touchY, s.ptouchX, s.ptouchY) < 10){
+        s.processMouseMove(s.touchX, s.touchY, s.ptouchX, s.ptouchY);
+        return false
+      }
+    }
+  };
+
+  
+  
+  // DRAWING - RELATED FUNCTIONS
+  s.processMouseMove = function(x, y, px, py){
+    if(s.isinside(x, y)) {
+      var x0 = s.width/2;
+      var y0 = s.height/2;
+      mouseanglebefore = s.atan2(py - y0, px - x0);
+      mouseanglenow = s.atan2(y - y0, x - x0);
+      var delta_angle = s.constrain(mouseanglenow - mouseanglebefore, -0.1, 0.1);
+      if(delta_angle * angle > 0){
+        angle += delta_angle*(angle_max - s.abs(angle));
+      }
+      else {
+        angle += delta_angle;
+      }
+      movedRecently = 15;
     }
   };
   
@@ -83,26 +137,6 @@ var moire_sketch = function(s) {
     pg2.image(pg1, 0, 0);
   };
   
-  s.mouseMoved = function() {
-    // get angle from mouse position
-    if(s.mouseX > 0 && s.mouseX < s.width && s.mouseY > 0 && s.mouseY < s.height) {
-      var x0 = s.width/2;
-      var y0 = s.height/2;
-      mouseanglebefore = s.atan2(s.pmouseY - y0, s.pmouseX - x0);
-      mouseanglenow = s.atan2(s.mouseY - y0, s.mouseX - x0);
-      var delta_angle = s.constrain(mouseanglenow - mouseanglebefore, -0.1, 0.1);
-      if(delta_angle * angle > 0){
-        angle += delta_angle*(angle_max - s.abs(angle));
-      }
-      else {
-        angle += delta_angle;
-      }
-      movedRecently = 15;
-      
-    }
-    return false;
-  };
-  
   s.draw = function() {
     // we translate to center of frame
     // (notice that image and rect are in CENTER mode)
@@ -136,12 +170,14 @@ var moire_sketch = function(s) {
     }
     s.pop();
   };
-};
+
+
+}; // END OF SKETCH
 
 var timer_moire = setInterval( function () {
     // Timer necessary on squarespace..
      if ( document.readyState !== 'complete' ) return;
      clearInterval( timer_moire );      
      console.log('starting sketch');
-     new p5(moire_sketch, "moire_div");
+     var sketch = new p5(moire_sketch, "moire_div");
  }, 100 );
