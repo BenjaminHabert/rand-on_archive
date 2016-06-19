@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
+    
+    <title>TESTING P5 SKETCH</title>
+
+    <!-- ADDING YUI LIBRARY THAT IS ON SQUARESPACE -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/yui/3.18.0/yui/yui-min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      // Step one: create a new YUI instance.
+      var Y = YUI();
+    </script>
+    <!-- live.js to auto reload -->
+    <script src="librairies/live.js" type="text/javascript"></script>
+    
+
+
+    <!--  WHICH P5.JS DO I USE ??
+    // P5 BASIC
+    <script src="librairies/p5.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.1/p5.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.1/p5.js" type="text/javascript"></script>
+
+    // SOUNDlibrairies    <script src="librairies/p5.sound.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.1/addons/p5.sound.min.js" type="text/javascript"></script>
+
+    // DOM
+    <script src="librairies/p5.dom.js" type="text/javascript" ></script>
+    -->
+    <script src="librairies/p5.min.js" type="text/javascript"></script>
+    <script src="librairies/p5.sound.js" type="text/javascript"></script>
+    
+
+    
+
+    <!-- MY UTILITY LIBRARY -->
+    <script src="librairies/my_utils.js" type="text/javascript"></script>
+    
+    
+    <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
+  </head>
+
+
+  <body>
+    <h2>Exemple p5</h2>
+    <!-- DIV TO CONTAIN SKETCH -->
+    <center id="moire_div">
+    </center>
+    <script src="random_moire_1/random_moire_1.js" type="text/javascript"></script>
+
+
+    <!-- DIV TO CONTAIN GIST SOURCE CODE -->
+    <div id="code_div"> </div>
+    <script>
+      Y.use('node', 'event', function (Y) {
+          createGist("https://gist.github.com/BenjaminHabert/58393f54b41c2f794e5b28ef99024a81.js", "#code_div");
+      });
+    </script>
+
+
+    <!-- Some ps to be able to scroll -->
+    <p> Ignore the rest of the page !</p>
+
+    <h1>Titre</h1>
+    <h2>sous titre</h2>
+    <p>Le mot coucou est un terme du vocabulaire courant qui peut désigner différentes espèces d'oiseaux ayant généralement un chant qui correspond à l'onomatopée « coucou ». Ce nom ne correspond donc pas à un niveau précis de la classification scientifique des espèces. Autrement dit, il s'agit d'un nom vernaculaire dont le sens est ambigu en biologie car il désigne une partie seulement des espèces appartenant soit à la sous-famille des Cuculinae (coucous de l'Ancien Monde), soit à celle des Coccyzinae (coucous du Nouveau Monde).
+Le plus souvent toutefois, en disant « coucou » les francophones font référence au Coucou gris (Cuculus canorus). </p>
+<h2>sous titre</h2>
+    <p>Le mot coucou est un terme du vocabulaire courant qui peut désigner différentes espèces d'oiseaux ayant généralement un chant qui correspond à l'onomatopée « coucou ». Ce nom ne correspond donc pas à un niveau précis de la classification scientifique des espèces. Autrement dit, il s'agit d'un nom vernaculaire dont le sens est ambigu en biologie car il désigne une partie seulement des espèces appartenant soit à la sous-famille des Cuculinae (coucous de l'Ancien Monde), soit à celle des Coccyzinae (coucous du Nouveau Monde).
+Le plus souvent toutefois, en disant « coucou » les francophones font référence au Coucou gris (Cuculus canorus). </p>
+
+<h1>Titre</h1>
+    <h2>sous titre</h2>
+    <p>Le mot coucou est un terme du vocabulaire courant qui peut désigner différentes espèces d'oiseaux ayant généralement un chant qui correspond à l'onomatopée « coucou ». Ce nom ne correspond donc pas à un niveau précis de la classification scientifique des espèces. Autrement dit, il s'agit d'un nom vernaculaire dont le sens est ambigu en biologie car il désigne une partie seulement des espèces appartenant soit à la sous-famille des Cuculinae (coucous de l'Ancien Monde), soit à celle des Coccyzinae (coucous du Nouveau Monde).
+Le plus souvent toutefois, en disant « coucou » les francophones font référence au Coucou gris (Cuculus canorus). </p>
+<h2>sous titre</h2>
+    <p>Le mot coucou est un terme du vocabulaire courant qui peut désigner différentes espèces d'oiseaux ayant généralement un chant qui correspond à l'onomatopée « coucou ». Ce nom ne correspond donc pas à un niveau précis de la classification scientifique des espèces. Autrement dit, il s'agit d'un nom vernaculaire dont le sens est ambigu en biologie car il désigne une partie seulement des espèces appartenant soit à la sous-famille des Cuculinae (coucous de l'Ancien Monde), soit à celle des Coccyzinae (coucous du Nouveau Monde).
+Le plus souvent toutefois, en disant « coucou » les francophones font référence au Coucou gris (Cuculus canorus). </p>
+
+<h1>Titre</h1>
+    <h2>sous titre</h2>
+    <p>Le mot coucou est un terme du vocabulaire courant qui peut désigner différentes espèces d'oiseaux ayant généralement un chant qui correspond à l'onomatopée « coucou ». Ce nom ne correspond donc pas à un niveau précis de la classification scientifique des espèces. Autrement dit, il s'agit d'un nom vernaculaire dont le sens est ambigu en biologie car il désigne une partie seulement des espèces appartenant soit à la sous-famille des Cuculinae (coucous de l'Ancien Monde), soit à celle des Coccyzinae (coucous du Nouveau Monde).
+Le plus souvent toutefois, en disant « coucou » les francophones font référence au Coucou gris (Cuculus canorus). </p>
+<h2>sous titre</h2>
+    <p>Le mot coucou est un terme du vocabulaire courant qui peut désigner différentes espèces d'oiseaux ayant généralement un chant qui correspond à l'onomatopée « coucou ». Ce nom ne correspond donc pas à un niveau précis de la classification scientifique des espèces. Autrement dit, il s'agit d'un nom vernaculaire dont le sens est ambigu en biologie car il désigne une partie seulement des espèces appartenant soit à la sous-famille des Cuculinae (coucous de l'Ancien Monde), soit à celle des Coccyzinae (coucous du Nouveau Monde).
+Le plus souvent toutefois, en disant « coucou » les francophones font référence au Coucou gris (Cuculus canorus). </p>
+
+
+
+    
+  </body>
+</html>
