@@ -30,10 +30,7 @@
     <script src="librairies/p5.dom.js" type="text/javascript" ></script>
     -->
     <script src="librairies/p5.min.js" type="text/javascript"></script>
-    <script src="librairies/p5.sound.js" type="text/javascript"></script>
-    
-
-    
+  
 
     <!-- MY UTILITY LIBRARY -->
     <script src="librairies/my_utils.js" type="text/javascript"></script>
@@ -46,17 +43,30 @@
   <body>
     <h2>Exemple p5</h2>
     <!-- DIV TO CONTAIN SKETCH -->
-    <center id="moire_div">
+    <center id="sketch_div">
     </center>
-    <script src="random_moire_1/random_moire_1.js" type="text/javascript"></script>
+    <script src="template_p5_sketch/template.js" type="text/javascript"></script>
 
 
     <!-- DIV TO CONTAIN GIST SOURCE CODE -->
     <div id="code_div"> </div>
     <script>
+      /*
+      Y.Get.js("https://gist.github.com/BenjaminHabert/58393f54b41c2f794e5b28ef99024a81.js", function (err) {
+          if (err) {
+              Y.log('Error loading JS: ' + err[0].error, 'error');
+              return;
+          }
+
+          Y.log('file.js loaded successfully!');
+      });
+    */
+
+    
       Y.use('node', 'event', function (Y) {
           createGist("https://gist.github.com/BenjaminHabert/58393f54b41c2f794e5b28ef99024a81.js", "#code_div");
       });
+    
     </script>
 
 
