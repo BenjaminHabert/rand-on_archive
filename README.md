@@ -8,7 +8,7 @@ The website is hosted by Squarespace and built using their tool. This imposes a 
 
 ### Where to import the libraries ?
 
-With squarespace, you can access the header in several ways. The page I use is an [Index](https://support.squarespace.com/hc/en-us/articles/206543817-Using-the-Index-Page)containing several other pages that are loaded dynamically. In this situation, it is better to include the libraries in the header of this Index page.
+With squarespace, you can access the header in several ways. The page I use is an [Index](https://support.squarespace.com/hc/en-us/articles/206543817-Using-the-Index-Page) containing several other pages that are loaded dynamically. In this situation, it is better to include the libraries in the header of this Index page.
 
 ### How to include the script ?
 
@@ -42,7 +42,7 @@ var timer_test_sketch = setInterval(
 	    // else: clear interval + create sketch
 	    clearInterval( timer_test_sketch ); 
 	     // new p5(<function that takes p5 as arg>, <"id of the div to use">);
-	     new p5(sketch,"sketch_div");
+	     new p5(mySketch,"sketch_div");
 	},
 	100
 );
@@ -119,6 +119,9 @@ function createGist(src, containerID) {
     	"#code_div");
 </script>
 ```
+
+
+
 
 
 
