@@ -6,6 +6,8 @@ var sketch = function(p) {
 
 	Shows  procedurally generated montains at dusk.
 	click to set to new values
+	see at: http://www.rand-on.com/#/duskmountains/
+
 
 	requires:
 		- p5.js 
@@ -23,7 +25,8 @@ var sketch = function(p) {
 
 
 	p.setup = function() {
-	  	p.createCanvas(400, 400);
+		var w = decideMainWidth(500);
+	  	p.createCanvas(w, w);
 	  	p.background(0);
 	  	p.ellipseMode(p.CENTER);
 	  	// p.noiseDetail(50,0.4);
@@ -97,7 +100,7 @@ var sketch = function(p) {
 	// MOBILE EVENTS
   	p.touchStarted = function(touchEvent){
     	// if two fingers touch: reset
-    	if (p.touchep.length > 1) {
+    	if (p.touches.length > 1) {
       		// check that one of them is inside
       		for (var i=0; i<p.touchep.length; i++){
         		var touch = p.touches[i];
@@ -126,7 +129,7 @@ var sketch = function(p) {
 	// UTILITY FUNCTIONS
   	decideMainWidth = function(max_width){
 	    // decide on sketch width
-	    var disp = p.min(p.displayWidth, p.displayHeight);
+	    var disp = p.floor(p.min(p.displayWidth, p.displayHeight)*0.95);
 	    // var win  = p.min(p.windowWidth , p.windowWidth);
 	    var main_width = p.min(disp, max_width);
 	    return main_width;
