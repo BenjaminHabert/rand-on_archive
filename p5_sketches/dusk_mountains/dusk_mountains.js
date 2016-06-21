@@ -26,6 +26,7 @@ var sketch = function(p) {
 
 	p.setup = function() {
 		var w = decideMainWidth(500);
+		p.pixelDensity(1);
 	  	p.createCanvas(w, w);
 	  	p.background(0);
 	  	p.ellipseMode(p.CENTER);
