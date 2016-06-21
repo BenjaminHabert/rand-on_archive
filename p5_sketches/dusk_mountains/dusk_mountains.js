@@ -131,7 +131,7 @@ var sketch = function(p) {
 	// UTILITY FUNCTIONS
   	decideMainWidth = function(max_width){
 	    // decide on sketch width
-	    var disp = p.floor(p.min(p.displayWidth, p.displayHeight)*0.95);
+	    var disp = p.floor(p.min(p.displayWidth, p.displayHeight)*0.9);
 	    // var win  = p.min(p.windowWidth , p.windowWidth);
 	    var main_width = p.min(disp, max_width);
 	    return main_width;
